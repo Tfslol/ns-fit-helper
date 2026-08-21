@@ -1,0 +1,21 @@
+/node_modules/
+*.zip
+
+# Local environment and editor files
+.env
+.env.*
+!.env.example
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# Generated output and logs
+dist/
+build/
+coverage/
+*.log
+
+# OS metadata
+.DS_Store
+Thumbs.db
+desktop.ini

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NS FIT Helper</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">NS FIT <span>/ HELPER</span></div>
+        <div id="cacheStatus" class="status-text"></div>
+    </header>
+
+    <div class="tabs">
+        <button class="tab-btn active" data-tab="locations">Locations</button>
+        <button class="tab-btn" data-tab="options">Sessions</button>
+        <button class="tab-btn" data-tab="filters">Filters</button>
+    </div>
+
+    <!-- LOCATIONS VIEW -->
+    <div id="view-locations" class="view active">
+        <div class="status-bar">
+            <span class="status-text" id="locStatus">Loading locations...</span>
+            <button class="btn-small" id="refreshBtn">Refresh</button>
+        </div>
+        <input class="search-box" id="searchBox" type="text" placeholder="Search locations...">
+        <div class="columns">
+            <div>
+                <div class="column-header preferred">
+                    Preferred <span class="col-count" id="prefCount">0</span>
+                </div>
+                <div class="location-list preferred-list" id="preferredList">
+                    <div class="empty-state">
+                        <span class="icon">⭐</span>
+                        Move locations here to mark as preferred.
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="column-header not-preferred">
+                    Not Preferred <span class="col-count" id="notPrefCount">0</span>
+                </div>
+                <div class="location-list not-preferred-list" id="notPreferredList">
+                    <div class="empty-state">
+                        <span class="spinner"></span>Loading...
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- OPTIONS VIEW -->
+    <div id="view-options" class="view">
+        <div class="options-header">
+            <div class="date-row">
+                <div>
+                    <div class="date-label">From</div>
+                    <input type="date" id="dateFrom">
+                </div>
+                <div>
+                    <div class="date-label">To</div>
+                    <input type="date" id="dateTo">
+                </div>
+            </div>
+            <button class="btn-primary" id="fetchOptionsBtn">Fetch Sessions</button>
+        </div>
+        <div class="url-display" id="urlDisplay" style="display:none;">
+            <span class="url-label">Request URL</span>
+            <span class="url-val" id="urlVal"></span>
+        </div>
+        <div id="optionsError" class="error-msg" style="display:none;"></div>
+        <div class="results-box" id="resultsBox">
+            <div class="empty-state">
+                <span class="icon">📋</span>
+                Select preferred locations, then click Fetch Sessions.
+            </div>
+        </div>
+    </div>
+
+    <!-- FILTERS VIEW -->
+    <div id="view-filters" class="view">
+        <div class="filter-section">
+            <div class="filter-section-title">Block days of the week</div>
+            <div class="filter-section-desc">Sessions on checked days will be hidden from results.</div>
+            <div class="day-grid">
+                <label class="day-toggle"><input class="day-checkbox" type="checkbox" value="0"><span>Sun</span></label>
+                <label class="day-toggle"><input class="day-checkbox" type="checkbox" value="1"><span>Mon</span></label>
+                <label class="day-toggle"><input class="day-checkbox" type="checkbox" value="2"><span>Tue</span></label>
+                <label class="day-toggle"><input class="day-checkbox" type="checkbox" value="3"><span>Wed</span></label>
+                <label class="day-toggle"><input class="day-checkbox" type="checkbox" value="4"><span>Thu</span></label>
+                <label class="day-toggle"><input class="day-checkbox" type="checkbox" value="5"><span>Fri</span></label>
+                <label class="day-toggle"><input class="day-checkbox" type="checkbox" value="6"><span>Sat</span></label>
+            </div>
+        </div>
+
+        <div class="filter-section">
+            <div class="filter-section-title">Block specific dates</div>
+            <div class="filter-section-desc">Sessions on these exact dates will be hidden.</div>
+            <div class="filter-date-input-row">
+                <input type="date" id="blockedDateInput" class="filter-date-picker">
+                <button class="btn-primary" id="addBlockedDateBtn">Add</button>
+            </div>
+            <div id="blockedDatesList" class="blocked-dates-list"></div>
+        </div>
+
+        <div class="filter-footer">
+            <button class="btn-small" id="clearFiltersBtn">Clear all filters</button>
+        </div>
+    </div>
+
+    <script type="module" src="popup.js"></script>
+</body>
+
+</html>
