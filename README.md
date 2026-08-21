@@ -5,16 +5,33 @@ A Chromium browser extension that makes planning NS FIT and IPPT sessions easier
 ## Features
 
 - Browse NS FIT and IPPT locations.
-![List of locations](readme_images/image.png)
 - Search locations and mark preferred locations.
-![Location search](readme_images/image-1.png)
 - Fetch available sessions for a selected date range.
-![Display available sessions](readme_images/image-2.png)
 - Hide sessions on selected days of the week.
 - Hide sessions on specific dates.
-![Filters](readme_images/image-3.png)
-![Display Filtered sessions](readme_images/image-4.png)
 - Saves preferred locations, dates, and filters locally in the browser automatically.
+
+## Screenshots
+
+### 1. Browse locations
+
+<img src="readme_images/image.png" alt="List of available locations" width="400">
+
+### 2. Search and choose preferred locations
+
+<img src="readme_images/image-1.png" alt="Search locations and mark preferred locations" width="400">
+
+### 3. View available sessions
+
+<img src="readme_images/image-2.png" alt="Display available sessions" width="400">
+
+### 4. Configure filters
+
+<img src="readme_images/image-3.png" alt="Block weekdays and specific dates" width="400">
+
+### 5. View filtered sessions
+
+<img src="readme_images/image-4.png" alt="Display filtered sessions" width="400">
 
 ## Installation
 
